@@ -56,7 +56,14 @@ function vowelBonusScorer(word) {
    return score;
 }
 
-let scrabbleScorer;
+function scrabbleScorer(word) {
+   let score = 0;
+   word = word.toLowerCase();
+   for (let i = 0; i < word.length; i++) {
+      score += newPointStructure[word[i]];
+   }
+   return score;
+}
 
 const scoringAlgorithms = [
    {
@@ -70,7 +77,7 @@ const scoringAlgorithms = [
    }, {
       name: "Scrabble",
       description: "The traditional scoring algorithm.",
-      scoreFunction: oldScrabbleScorer
+      scoreFunction: scrabbleScorer
    }
 ];
 
